@@ -8,7 +8,7 @@ module.exports = {
     resolve: {
         fallback: path.join(__dirname, "node_modules"),
         modulesDirectories: [
-            "app",
+            "app/modules",
             "node_modules"
         ],
         extensions: ["", ".json", ".js", ".jsx"]
@@ -26,7 +26,7 @@ module.exports = {
     },
     entry: {
         main: './app/main',
-        vendor: ['react']
+        vendor: ['react', 'lodash', 'Hero.jsx']
 
     },
     output: {

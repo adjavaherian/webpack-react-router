@@ -2,15 +2,35 @@ var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
 var AppTemplate = require('./AppTemplate');
-var FrontPage = require('./pages/FrontPage');
 
-var MobileAppsPage = null;
+var MobileAppsPage, FrontPage = null;
+
+var FrontPageLoader = React.createClass({
+
+    componentDidMount: function() {
+        var that = this;
+        require.ensure(['./pages/FrontPage'], function(require){
+            FrontPage = require('./pages/FrontPage');
+            that.forceUpdate();
+        });
+    },
+    render: function() {
+        if (FrontPage) {
+            return <FrontPage {...this.props} />;
+        } else {
+            return <div className="spinner" />;
+        }
+    }
+});
+
 
 var MobileAppsPageLoader = React.createClass({
+
     componentDidMount: function() {
-        require.ensure(['./pages/MobileAppsPage'], function(){
+        var that = this;
+        require.ensure(['./pages/MobileAppsPage'], function(require){
             MobileAppsPage = require('./pages/MobileAppsPage');
-            this.forceUpdate();
+            that.forceUpdate();
         });
     },
     render: function() {
@@ -24,7 +44,7 @@ var MobileAppsPageLoader = React.createClass({
 
 var AppRoutes = (
     <Route path='/' handler={AppTemplate}>
-        <Route name="FrontPage" path='/' handler={FrontPage}/>
+        <Route name="FrontPage" path='/' handler={FrontPageLoader}/>
         <Route name="MobileAppsPage" path="mobile-apps" handler={MobileAppsPageLoader}/>
     </Route>
 );

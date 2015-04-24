@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Hero = require('../modules/Hero');
+var _ = require('lodash');
 
 var FrontPage = React.createClass({
     displayName: 'FrontPage',
