@@ -1,6 +1,6 @@
 var React = require('react');
 var Hero = require('../modules/Hero');
-var TestClass = require('../modules/TestClass.jsx');
+var TestClass = require('../modules/TestClass');
 
 var MobileAppsPage = React.createClass({
     displayName: 'MobileAppsPage',
