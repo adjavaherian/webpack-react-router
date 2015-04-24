@@ -1,21 +1,11 @@
 var React = require('react');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
-var Fluxxor = require('fluxxor');
-var FluxMixin = Fluxxor.FluxMixin(React);
 
 var AppTemplate = React.createClass({
     displayName: 'AppTemplate',
-    mixins: [FluxMixin],
-    getStateFromFlux: function() {
-        var flux = this.getFlux();
-        return {
-            AppStore: {}
-        };
-    },
-    render: function() {
-        var AppStore = this.getFlux().store('AppStore');
 
+    render: function() {
         return (
             <html>
                 <head lang="en">
@@ -25,10 +15,8 @@ var AppTemplate = React.createClass({
                     <meta httpEquiv="Content-Language" content="en-us"/>
                     <meta httpEquiv="X-UA-Compatible" content="IE=Edge"/>
                     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
-                    <script type='text/javascript' src="dist/js/commons.js" />
-                    <script type='text/javascript' src="dist/js/app.bundle.js" />
-                    <script type='text/javascript' src="dist/js/rehydrate.bundle.js" />
-                    <script type='text/javascript' src="dist/js/frontPage.bundle.js" />
+                    <script type='text/javascript' src="vendor.bundle.js" />
+                    <script type='text/javascript' src="main.bundle.js" />
                 </head>
                 <body>
                     <RouteHandler {...this.props}/>

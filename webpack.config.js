@@ -26,8 +26,7 @@ module.exports = {
     },
     entry: {
         main: './app/main',
-        frontPage: ['./app/pages/FrontPage'],
-        mobileAppsPage: ['./app/pages/MobileAppsPage']
+        vendor: ['react']
 
     },
     output: {
@@ -37,9 +36,8 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'commons',
-            filename: 'commons.js',
-            chunks: ['main', 'frontPage', 'mobileAppsPage']
+            name: 'vendor',
+            filename: 'vendor.bundle.js'
         })
     ],
     module : {

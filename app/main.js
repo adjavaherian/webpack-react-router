@@ -4,10 +4,10 @@ var AppRoutes = require('./AppRoutes');
 
 if (typeof window !== 'undefined') {
     window.onload = function() {
+        console.log('window on load');
         Router.run(AppRoutes, Router.HistoryLocation, function(Handler, state) {
             var HandlerElement = React.createElement(Handler, {
-                path: path,
-                serializedFlux: serializedFlux
+                path: window.location.pathname
             });
             React.render(HandlerElement, document);
         });
