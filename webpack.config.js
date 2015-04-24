@@ -39,7 +39,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
             filename: 'commons.js',
-            chunks: ['rehydrate', 'frontPage', 'mobileAppsPage']
+            chunks: ['main', 'frontPage', 'mobileAppsPage']
         })
     ],
     module : {
