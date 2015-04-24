@@ -25,7 +25,7 @@ module.exports = {
         root: path.join(__dirname, "node_modules")
     },
     entry: {
-        rehydrate: './app/main',
+        main: './app/main',
         frontPage: ['./app/pages/FrontPage'],
         mobileAppsPage: ['./app/pages/MobileAppsPage']
 
