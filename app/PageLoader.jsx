@@ -1,6 +1,7 @@
 var React = require('react');
 
 var FrontPage, MobileAppsPage = null;
+var FrontPageStub = require('./pages/FrontPageStub.jsx');
 
 var FrontPageLoader = React.createClass({
 
@@ -15,7 +16,7 @@ var FrontPageLoader = React.createClass({
         if (FrontPage) {
             return <FrontPage {...this.props} />;
         } else {
-            return <div className="spinner" />;
+            return <FrontPageStub />;
         }
     }
 });

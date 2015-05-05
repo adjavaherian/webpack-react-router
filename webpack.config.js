@@ -38,7 +38,8 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename: 'vendor.bundle.js'
-        })
+        }),
+        new webpack.IgnorePlugin(/stub/i)
     ],
     module : {
         loaders: [
